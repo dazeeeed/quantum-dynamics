@@ -12,6 +12,7 @@ def main():
     ax = plt.axes(xlim=(0, 1), ylim=(0,5))
     line, = ax.plot([], [], lw=3)
 
+
     def init():
         line.set_data([], [])
         return line,
@@ -23,13 +24,13 @@ def main():
         return line,
 
     anim = FuncAnimation(fig, animate, init_func=init,
-                                frames=200, interval=2, blit=True)
+                                frames=rho.shape[0], interval=2, blit=True)
 
 
     save_animation = False
     if save_animation:
         Writer = animation.writers['ffmpeg']
-        writer = Writer(fps=60, metadata=dict(artist='Me'), bitrate=-1, extra_args=['-vcodec', 'libx264'])
+        writer = Writer(fps=60, metadata=dict(artist='01141448'), bitrate=-1, extra_args=['-vcodec', 'libx264'])
         anim.save('wave_function.mp4', writer=writer)
 
     plt.show()
