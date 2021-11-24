@@ -7,11 +7,12 @@ import pandas as pd
 
 
 omega_values = [3 * np.pi**2 / 2, 4 * np.pi**2 / 2, 8 * np.pi**2 / 2]
+
 # =======================
-N = 100  # number of ranges
-n = 2  # which energy level
-kappa = 3
-omega = omega_values[1]
+N = 100             # number of ranges
+n = 1               # which energy level
+kappa = 3           # 3
+omega = omega_values[0]
 tau = 0
 delta_tau = 0.0001
 # =======================
@@ -84,6 +85,7 @@ def main():
     rho_arr = np.zeros(shape=x_k.shape)
     norm_x_epsilon_arr = np.array([0, 0, 0])
 
+    # NUM_STEPS = 100000
     NUM_STEPS = 100000
     for step in tqdm(range(NUM_STEPS)):
         H_real = calc_H(psi_real, tau)
