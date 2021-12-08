@@ -29,14 +29,15 @@ def main():
         y = rho.iloc[i, :]
         line.set_data(x, y)
         return line,
-
+    
+    # """
     anim = FuncAnimation(fig, animate, init_func=init,
                                 frames=rho.shape[0], interval=2, blit=True)
                                 # frames=1, interval=2, blit=True)
+    # """
+    # line.set_data(np.linspace(0, 1, 101), rho.iloc[5800, :])
 
-
-
-    save_animation = True
+    save_animation = False
     if save_animation:
         Writer = animation.writers['ffmpeg']
         writer = Writer(fps=60, metadata=dict(artist='01141448'), bitrate=-1, extra_args=['-vcodec', 'libx264'])
